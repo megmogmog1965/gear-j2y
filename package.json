@@ -1,6 +1,6 @@
 {
   "name": "gear-j2y",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Json to Yaml converter for GEAR.indigo.",
   "repository": {
     "type": "git",

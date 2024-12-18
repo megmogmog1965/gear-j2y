@@ -21,8 +21,8 @@ export function parseJsonRecursively(json: JsonTypes): JsonTypes {
 
   // string.
   if (typeof json === 'string') {
-    const jsonObject = parseAsJsonObject(json)
-    return jsonObject ? parseJsonRecursively(jsonObject) : json
+    const jsonObject = parseAsArrayOrObjectOrNull(json)
+    return (jsonObject !== undefined) ? parseJsonRecursively(jsonObject) : json
   }
 
   // number, boolean, null.
@@ -30,12 +30,12 @@ export function parseJsonRecursively(json: JsonTypes): JsonTypes {
 }
 
 /**
- * parse json as object.
+ * parse json as Json array, object or null.
  *
  * @param {string} str json string.
- * @returns {object | undefined} parsed json object or undefined.
+ * @returns {Array<JsonTypes> | object | null | undefined} parsed json array, object or null or undefined.
  */
-function parseAsJsonObject(str: string): object | undefined {
+function parseAsArrayOrObjectOrNull(str: string): Array<JsonTypes> | object | null | undefined {
   let json = undefined
   try {
     json = JSON.parse(str)
@@ -43,7 +43,8 @@ function parseAsJsonObject(str: string): object | undefined {
     return undefined
   }
 
-  return (typeof json === 'object' && json !== null) ? json : undefined
+  // array, object or null.
+  return (Array.isArray(json) || json === null || typeof json === 'object') ? json : undefined
 }
 
 /**
