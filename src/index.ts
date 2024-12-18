@@ -2,8 +2,8 @@
 
 import fs from 'fs'
 import process from 'process'
-import { getArgs } from '@/src/argparser.js'
-import { parseJsonRecursively, createYamlString } from '@/src/converter.js'
+import { getArgs } from './argparser.js'
+import { parseJsonRecursively, createYamlString } from './converter.js'
 
 /**
  * main process.
