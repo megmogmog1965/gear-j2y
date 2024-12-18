@@ -1,0 +1,40 @@
+{
+  "name": "gear-j2y",
+  "version": "1.0.0",
+  "description": "Json to Yaml converter for GEAR.indigo.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/megmogmog1965/gear-j2y.git"
+  },
+  "type": "module",
+  "main": "./src/index.js",
+  "bin": {
+    "gear-j2y": "src/index.ts"
+  },
+  "scripts": {
+    "dev": "npm run build && tsx src/index.ts",
+    "build": "npm run lint && npm run tsc",
+    "lint": "eslint",
+    "tsc": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest watch"
+  },
+  "author": "megmogmog1965",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^5.5.4",
+    "yaml": "^2.6.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "@types/node": "^22.5.2",
+    "eslint": "^9.9.1",
+    "globals": "^15.11.0",
+    "tsx": "^4.19.1",
+    "typescript-eslint": "^8.3.0",
+    "vitest": "^2.0.5"
+  },
+  "volta": {
+    "node": "18.20.4"
+  }
+}
