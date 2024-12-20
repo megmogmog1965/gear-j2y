@@ -2,7 +2,7 @@
 
 import fs from 'fs'
 import process from 'process'
-import { getArgs } from './argparser.js'
+import { usage, getArgs } from './argparser.js'
 import { parseJsonRecursively, createYamlString } from './converter.js'
 
 /**
@@ -42,20 +42,6 @@ async function main(): Promise<boolean> {
   process.stdout.write(yaml)
 
   return true
-}
-
-/**
- * usage.
- *
- * @returns usage message.
- */
-function usage(): string {
-  return `
-Usage: npx gear-j2y [options] [json file]
-
-Options:
-  -h, --help  Show help
-`.trim()
 }
 
 /**

@@ -43,3 +43,17 @@ export function getArgs(args: string[] | undefined = undefined): { args?: Args, 
     return { error: (e as Error).message }
   }
 }
+
+/**
+ * usage.
+ *
+ * @returns usage message.
+ */
+export function usage(): string {
+  return `
+Usage: npx gear-j2y [options] [json file]
+
+Options:
+  -h, --help  Show help
+`.trim()
+}
